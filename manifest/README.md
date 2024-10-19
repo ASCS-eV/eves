@@ -42,53 +42,60 @@ manifest:Manifest a owl:Class ;
 
 The `ManifestShape` defines the structure of a manifest. It contains one property:
 
-- **links**: References `LinksShape` and must be present exactly once.
+- **data**: References `DataShape` and must be present exactly once.
 
 ```turtle
 manifest:ManifestShape a sh:NodeShape ;
-    sh:property [ sh:maxCount 1 ;
-                  sh:minCount 1 ;
-                  sh:node manifest:LinksShape ;
-                  sh:order 0 ;
-                  sh:path manifest:links ];        
+    sh:property             
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node manifest:DataShape ;
+            sh:order 1 ;
+            sh:path manifest:data ];         
     sh:targetClass manifest:Manifest .
 ```
 
-### LinksShape
+### DataShape
 
-The `LinksShape` defines the structure of the links within a manifest. It contains several properties:
+The `DataShape` defines the structure of the links within a manifest. It contains several properties:
 
-- **media**: Optional reference to media data as a relative path.
-- **data**: Required reference to data as a relative path.
-- **asset**: Required reference to a data asset as a relative path.
+- **contentData**: Optional reference to content data as a relative path.
+- **assetData**: Required reference to assetdata as a relative path.
+- **asset**: Required reference to the asset.zip folder as a relative path.
 
 ```turtle
-manifest:LinksShape a sh:NodeShape ;
-    sh:property [ skos:example "screenshot, video, routing, 3d preview" ;
-                  sh:description "Reference to media data as relativePath"@en ;
-                  sh:message "Validation of media failed!"@en ;
-                  sh:minCount 0 ;
-                  sh:name "media"@en ;
-                  sh:node manifest:LinkShape ;
-                  sh:order 1 ;
-                  sh:path manifest:media ],
-                [ skos:example "link to data, e.g. ./hdmap.xodr" ;
-                  sh:description "Reference to the data asset as relativePath"@en ;
-                  sh:message "Validation of data failed!"@en ;
-                  sh:minCount 1 ;
-                  sh:name "data"@en ;
-                  sh:node manifest:LinkShape ;
-                  sh:order 1 ;
-                  sh:path manifest:data ],
-                [ skos:example "link to data asset, e.g. ./asset.zip" ;
-                  sh:description "Reference to the data asset as relativePath"@en ;
-                  sh:message "Validation of asset failed!"@en ;
-                  sh:minCount 1 ;
-                  sh:name "asset"@en ;
-                  sh:node manifest:LinkShape ;
-                  sh:order 0 ;
-                  sh:path manifest:asset ];
-    sh:targetClass manifest:Links .
+manifest:DataShape a sh:NodeShape ;
+    sh:property 
+        [   skos:example "link to zipped asset folder, e.g. ./asset.zip" ;
+            sh:description "Reference to the asset folder as relativePath"@en ;
+            sh:message "Validation of asset failed!"@en ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "asset"@en ;
+            sh:node manifest:LinkShape ;
+            sh:order 1 ;
+            sh:path manifest:asset 
+        ],
+
+        [   skos:example "link to valuable data, e.g. ./hdmap.xodr" ;
+            sh:description "Reference to valuable data/asset as relativePath or link"@en ;
+            sh:message "Validation of data failed!"@en ;
+            sh:minCount 1 ;
+            sh:name "assetData"@en ;
+            sh:node manifest:LinkShape ;
+            sh:order 2 ;
+            sh:path manifest:assetData
+        ],
+       [    skos:example "screenshot, video, routing, 3d preview" ;
+            sh:description "Reference to media data as relativePath"@en ;
+            sh:message "Validation of media failed!"@en ;
+            sh:name "contentData"@en ;
+            sh:node manifest:LinkShape ;
+            sh:order 3 ;
+            sh:path manifest:contentData 
+        ];
+
+    sh:targetClass manifest:Data .
 ```
 
 ### LinkShape
