@@ -35,15 +35,33 @@ manifest:DataShape a sh:NodeShape ;
             sh:order 2 ;
             sh:path manifest:assetData
         ],
-       [    skos:example "screenshot, video, routing, 3d preview" ;
-            sh:description "Reference to media data as relativePath"@en ;
-            sh:message "Validation of media failed!"@en ;
+        [   skos:example "license type" ;
+            sh:in ("OpenSource" "ProviderSpecific") ;
+            sh:message "Validation of license type failed!"@en ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "licenseType"@en ;
+            sh:order 3 ;
+            sh:path manifest:licenseType 
+        ],      
+        [   skos:example "link to licenseData" ;
+            sh:description "link to licenseData as relativePath"@en ;
+            sh:message "Validation of licenseData failed!"@en ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "licenseData"@en ;
+            sh:node manifest:LinkShape ;
+            sh:order 4 ;
+            sh:path manifest:licenseData 
+        ],
+        [    skos:example "screenshot, video, routing, 3d preview" ;
+            sh:description "Reference to content data as relativePath"@en ;
+            sh:message "Validation of content failed!"@en ;
             sh:name "contentData"@en ;
             sh:node manifest:LinkShape ;
-            sh:order 3 ;
+            sh:order 5 ;
             sh:path manifest:contentData 
         ];
-
     sh:targetClass manifest:Data .
 
 manifest:LinkShape a sh:NodeShape ;
@@ -59,7 +77,7 @@ manifest:LinkShape a sh:NodeShape ;
             sh:path manifest:accessRole 
         ],
         [    sh:datatype xsd:string ;
-            sh:in ("Document" "Image" "Model" "Routing" "Video" "3DPreview" "Asset" "Metadata" "License" "Validation" "AssetData") ;
+            sh:in ("Document" "Image" "Model" "Routing" "Video" "3DPreview" "Asset" "Metadata" "License" "Validation" "AssetData" "other") ;
             sh:message "Validation of type failed!"@en ;
             sh:description "Choose type of link." ;
             sh:name "type"@en ;
@@ -69,7 +87,7 @@ manifest:LinkShape a sh:NodeShape ;
             sh:path manifest:type 
         ],
         [    sh:datatype xsd:string ;
-            sh:in ("pdf" "png" "mp4" "geojson" "zip" "json" "txt" "xodr" "md") ;
+            sh:in ("pdf" "png" "mp4" "geojson" "zip" "json" "txt" "xodr" "md" "other") ;
             sh:message "Validation of format failed!"@en ;
             sh:description "Choose an format." ;
             sh:name "format"@en ;

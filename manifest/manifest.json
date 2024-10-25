@@ -1,0 +1,179 @@
+{
+  "@context": {
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gx": "https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "manifest": "https://github.com/ASCS-eV/EVES/tree/onboarding/ontologyManifest/"
+  },
+  "@id": "did:web:registry.gaia-x.eu:Manifest:ZNh9Z-tHQpkpxJhNobhUVmauYxrfTAZdQy9L",
+  "@type": "manifest:Manifest",
+  "manifest:data": {
+    "@type": "manifest:Data",
+    "manifest:asset": {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "owner",
+      "manifest:type": "Asset",
+      "manifest:format": "zip",
+      "manifest:relativePath": {
+        "@value": "./asset.zip",
+        "@type": "xsd:anyURI"
+      }
+    },
+    "manifest:assetData": [
+      {
+        "@type": "manifest:Link",
+        "manifest:accessRole": "owner",
+        "manifest:type": "AssetData",
+        "manifest:format": "xodr",
+        "manifest:relativePath": {
+          "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/data/TestfeldNiedersachsen_ALKS_ODR_sample.xodr",
+          "@type": "xsd:anyURI"
+        }
+      },
+      {
+        "@type": "manifest:Link",
+        "manifest:accessRole": "owner",
+        "manifest:type": "AssetData",
+        "manifest:format": "xodr",
+        "manifest:relativePath": {
+          "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/data/TestfeldNiedersachsen_ALKS_ODR_sample_offset.xodr",
+          "@type": "xsd:anyURI"
+        }
+      }
+    ],
+    "manifest:licenseType": "ProviderSpecific",
+    "manifest:licenseData": {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "License",
+      "manifest:format": "md",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/LICENSE",
+        "@type": "xsd:anyURI"
+      }
+    },
+    "manifest:contentData": [
+      {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Metadata",
+      "manifest:format": "json",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/metadata/domainMetadata.json",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Metadata",
+      "manifest:format": "json",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/metadata/domainMetadata.json",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Metadata",
+      "manifest:format": "json",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/metadata/gxMetadata.json",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "registeredUser",
+      "manifest:type": "Document",
+      "manifest:format": "pdf",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/documentation/TestfeldNiedersachsen_ALKS_ODR_sample_Documentation.pdf",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "registeredUser",
+      "manifest:type": "Document",
+      "manifest:format": "txt",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/documentation/TestfeldNiedersachsen_ALKS_ODR_sample_Documentation_stats.txt",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "registeredUser",
+      "manifest:type": "Validation",
+      "manifest:format": "txt",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/validation/qcReport.txt",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Image",
+      "manifest:format": "png",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/TestfeldNiedersachsen_ALKS_ODR_sample_01.png",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Image",
+      "manifest:format": "png",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/TestfeldNiedersachsen_ALKS_ODR_sample_02.png",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "Image",
+      "manifest:format": "png",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/TestfeldNiedersachsen_ALKS_ODR_sample_03.png",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "3DPreview",
+      "manifest:format": "geojson",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/bbox.geojson",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "publicUser",
+      "manifest:type": "3DPreview",
+      "manifest:format": "geojson",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/roadNetwork.geojson",
+        "@type": "xsd:anyURI"
+      }
+    },
+    {
+      "@type": "manifest:Link",
+      "manifest:accessRole": "registeredUser",
+      "manifest:type": "3DPreview",
+      "manifest:format": "geojson",
+      "manifest:relativePath": {
+        "@value": "./TestfeldNiedersachsen_ALKS_ODR_sample/visualization/detailRoadNetwork.geojson",
+        "@type": "xsd:anyURI"
+      }
+    }
+   ]
+  }
+}
