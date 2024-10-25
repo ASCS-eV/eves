@@ -25,7 +25,6 @@ manifest:DataShape a sh:NodeShape ;
             sh:order 1 ;
             sh:path manifest:asset 
         ],
-
         [   skos:example "link to valuable data, e.g. ./hdmap.xodr" ;
             sh:description "Reference to valuable data/asset as relativePath or link"@en ;
             sh:message "Validation of data failed!"@en ;
@@ -96,7 +95,6 @@ manifest:LinkShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path manifest:format 
         ],
-
         [   sh:datatype xsd:anyURI ;
             sh:message "Validation of relativePath failed!"@en ;
             sh:description "Enter link as URL or DID." ;
