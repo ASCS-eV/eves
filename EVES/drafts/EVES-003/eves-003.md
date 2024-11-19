@@ -12,7 +12,8 @@ replaces: None
 
 ## Abstract
 
-This specification defines the structure of an asset in the ENVITED-X Data Space and outlines the process for uploading assets to ensure compliance, security, and interoperability. It leverages existing standards, such as the Gaia-X 4 PLC-AAD Manifest Ontology, and implements privacy layers, validation, and metadata mapping aligned with [Tezos TZIP-21](https://docs.tezos.com/architecture/governance/improvement-process#tzip-21-rich-contract-metadata).
+This specification defines the structure of an asset in the ENVITED-X Data Space and outlines the process for uploading assets to ensure compliance, security, and interoperability.
+It leverages existing standards, such as the Gaia-X 4 PLC-AAD Manifest Ontology, and implements privacy layers, validation, and metadata mapping aligned with [Tezos TZIP-21](https://docs.tezos.com/architecture/governance/improvement-process#tzip-21-rich-contract-metadata).
 
 ## Motivation
 
@@ -28,7 +29,8 @@ This EVES addresses the need for clear guidelines to onboard assets and synchron
 
 ### 1. Asset Definition
 
-An asset is defined by the [Gaia-X 4 PLC-AAD Manifest Ontology](https://github.com/GAIA-X4PLC-AAD/ontology-management-base/tree/main/manifest/). The example implementation [here](https://github.com/ASCS-eV/smart-contracts/tree/main/contracts/marketplace/metadata) is based on Release v0.1.6 from the [HD-Map Asset Example](https://github.com/GAIA-X4PLC-AAD/hd-map-asset-example).
+An asset is defined by the [Gaia-X 4 PLC-AAD Manifest Ontology](https://github.com/GAIA-X4PLC-AAD/ontology-management-base/tree/main/manifest/).
+The example implementation [here](https://github.com/ASCS-eV/smart-contracts/tree/main/contracts/marketplace/metadata) is based on release v0.1.6 from the [HD-Map Asset Example](https://github.com/GAIA-X4PLC-AAD/hd-map-asset-example).
 
 This EVES references the [Gaia-X Policy Rules Compliance Document (Release 24.11)](https://docs.gaia-x.eu/policy-rules-committee/compliance-document/24.11/). Compatibility with this release is **to be verified** in a future update of this EVES.
 
@@ -47,11 +49,11 @@ This EVES references the [Gaia-X Policy Rules Compliance Document (Release 24.11
 
 The ENVITED-X Data Space implements a three-tiered privacy model:
 
-| manifest:accessRole  | ENVITED-X Domain                                                  | Comment                               |
-| --------------------- | ---------------------------------------------------------------- | ------------------------------------- |
-| `owner`              | https://assets.envited-x.net/Asset-CID                            | CID v1, signed URLs, asset credential |
-| `registeredUser`     | https://metadata.envited-x.net/Asset-CID                          | CID v1, signed URLs, DEMIM credential |
-| `publicUser`         | ipfs://Data-CID -> https://ipfs.envited-x.net/Asset-CID/Data-CID  | CID v1, public, indexer to new URL    |
+| manifest:accessRole  | ENVITED-X Domain                                                      | Comment                               |
+| -------------------- | --------------------------------------------------------------------- | ------------------------------------- |
+| `owner`              | <https://assets.envited-x.net/Asset-CID>                              | CID v1, signed URLs, asset credential |
+| `registeredUser`     | <https://metadata.envited-x.net/Asset-CID>                            | CID v1, signed URLs, DEMIM credential |
+| `publicUser`         | >ipfs://Data-CID> to <https://ipfs.envited-x.net/Asset-CID/Data-CID>  | CID v1, public, indexer to new URL    |
 
 ### 4. Asset Validation and Upload Process
 
