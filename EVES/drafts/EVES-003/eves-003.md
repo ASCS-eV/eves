@@ -75,7 +75,8 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 - Rename `asset.zip` to `CID.zip` and store at `https://assets.envited-x.net/Asset-CID`.
 - Store *registeredUser* metadata at `https://metadata.envited-x.net/Asset-CID`.
 - Calculate CIDs for all `publicUser` data.
-- Create a `tzip21_asset_manifest.json` by replacing relative paths in `manifest.json` with IPFS/envited-x.net URLs.
+- Create `tzip21_asset_manifest.json` by replacing relative paths in `manifest.json` with IPFS/envited-x.net URLs.
+- Create `tzip21_token_metadata.json` and map metadata fields.
 
 #### Step 3: Preview Data
 
@@ -84,7 +85,6 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 #### Step 4: Mint Token
 
 - Upload `publicUser` information and `tzip21_asset_manifest.json` to IPFS.
-- Create `tzip21_token_metadata.json` and map metadata fields.
 - Mint token with linked metadata.
 
 #### Step 5: Listener and Database Synchronization
@@ -111,8 +111,43 @@ The synchronization between the smart contract and the ENVITED-X database relies
    `did:tezos:NetXnHfVqm9iesp:KT1XC2fTBNqoafnrhEb7TuToRCzewgbHAhnA`
 2. The user DID at the time of minting.
 3. The transaction signature, validated against the user DID.
-4. The generated `tzip21_asset_manifest.json` UUID:  
-   `@id: "urn:uuid:cf1f329d-9c4c-458e-ba0a-a762a296b79c"`
+4. Replace *@id* with generated UUID in `tzip21_asset_manifest.json`:
+
+   ```json
+   // Replace manifest.json @id
+   "@id": "did:web:registry.gaia-x.eu:Manifest:ZNh9Z-tHQpkpxJhNobhUVmauYxrfTAZdQy9L",
+   // with ENVITED-X Data Space generated UUID
+   "@id": "urn:uuid:cf1f329d-9c4c-458e-ba0a-a762a296b79c",
+   ```
+
+#### TZIP-21 rich metadata mapping
+
+Attributes not in the table are static and the same for every mint. Examples are the first five tags or "publishers", which is always ENVITED-X and the ASCS as the mint is conducted through the website.
+
+| TZIP-21            | EVES-003                                             | Comment                                                      |
+| -------------------| ---------------------------------------------------- | ------------------------------------------------------------ |
+| "name"             | hdmap:general:name                                   |                                                              |
+| "description"      | hdmap:general:description                            |                                                              |
+| "tags"             | hdmap:format:formatType + " " + hdmap:format:version | All tags static except for the format                        |
+| "minter"           | Member DID associated with user initiating the mint  | Returned by the View from the DEMIM revocation registry      |
+| "creators"         | Name of the company                                  | Taken from the company profile the user belongs to           |
+| "date"             | [System date-time][1]                                |                                                              |
+| "rights"           | "manifest:spdxIdentifier"                            | [SPDX identifier][2]                                         |
+| "rightsUri"        | "manifest:licenseData:manifest:path"                 | Full os license text URL OR policy smart contract did        |
+| "artifactUri"      | https://assets.envited-x.net/Asset-CID               |                                                              |
+| "identifier"       | Asset-CID                                            |                                                              |
+| "externalUri"      | Uploaded domainMetadata.json to IPFS                 |                                                              |
+| "displayUri"       | "manifest:contentData:visualization"                 | Always use the first media image                             |
+| "formats"          | Add info for artifactUri, externalUri and displayUri |                                                              |
+| "attributes"       | Same as in example with IPFS CIDs+URL                | For other asset types hdmap would be exchanged               |
+
+### Custom SPDX license identifier
+
+- Custom license in a LICENSE file in the asset.zip root folder: "LicenseRef-Custom-Commercial-Agreement"
+- Custom license in a smart contract as json-ld ODRL policy: "LicenseRef-Policy-Smart-Contract"
+
+[1]: https://json-schema.org/understanding-json-schema/reference/string#dates-and-times
+[2]: https://softwareengineering.stackexchange.com/a/450839/443441
 
 ## Backwards Compatibility
 
