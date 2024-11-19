@@ -12,7 +12,9 @@ replaces: None
 
 ## Abstract
 
-This specification provides a high-level overview of the architecture of the ENVITED-X Data Space. It describes the modular design, key components, and interactions required to enable secure, scalable, and interoperable data sharing for automotive ADAS validation using simulation. The document serves as a foundation for developers and technical decision-makers, with detailed requirements delegated to future EVES.
+This specification provides a high-level overview of the architecture of the ENVITED-X Data Space.
+It describes the modular design, key components, and interactions required to enable secure, scalable, and interoperable data sharing for automotive ADAS validation using simulation.
+The document serves as a foundation for developers and technical decision-makers, with detailed requirements delegated to future EVES.
 
 ## Motivation
 
