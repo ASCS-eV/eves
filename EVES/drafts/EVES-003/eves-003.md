@@ -53,7 +53,7 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 | -------------------- | --------------------------------------------------------------------- | ------------------------------------- |
 | `owner`              | <https://assets.envited-x.net/Asset-CID>                              | CID v1, signed URLs, asset credential |
 | `registeredUser`     | <https://metadata.envited-x.net/Asset-CID>                            | CID v1, signed URLs, DEMIM credential |
-| `publicUser`         | >ipfs://Data-CID> to <https://ipfs.envited-x.net/Asset-CID/Data-CID>  | CID v1, public, indexer to new URL    |
+| `publicUser`         | <ipfs://Data-CID> to <https://ipfs.envited-x.net/Asset-CID/Data-CID>  | CID v1, public, indexer to new URL    |
 
 ### 4. Asset Validation and Upload Process
 
@@ -74,6 +74,7 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 - Calculate the CID of `asset.zip`.
 - Rename `asset.zip` to `CID.zip` and store at `https://assets.envited-x.net/Asset-CID`.
 - Store *registeredUser* metadata at `https://metadata.envited-x.net/Asset-CID`.
+- Store *publicUser* metadata at `https://ipfs.envited-x.net/Asset-CID/Data-CID`.
 - Calculate CIDs for all `publicUser` data.
 - Create `tzip21_asset_manifest.json` by replacing relative paths in `manifest.json` with IPFS/envited-x.net URLs.
 - Create `tzip21_token_metadata.json` and map metadata fields.
@@ -81,23 +82,28 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 #### Step 3: Preview Data
 
 - **TBD**: Define visualization and preview mechanisms for uploaded data.
+- If a user triggers the "delete asset" button then all data stored in Step 2) is deleted.
 
 #### Step 4: Mint Token
 
 - Upload `publicUser` information and `tzip21_asset_manifest.json` to IPFS.
+- Verify that CIDs from Pinata returned the same CIDs then the pre-calculation.
+- Upload `tzip21_token_metadata.json` to IPFS.
 - Mint token with linked metadata.
+- The wallet/SDK will provide feedback if a token was minted successfully.
 
 #### Step 5: Listener and Database Synchronization
 
 - Use a listener to detect mint events and synchronize data with the ENVITED-X database.
-- Download `publicUser` data from IPFS to `https://ipfs.envited-x.net/Asset-CID`.
+- Verify that data referenced in the token metadata is the same as stored in Step 2).
 
 ### 5. Database Synchronization
 
 #### CID as the Primary Identifier
 
 - The CID of the uploaded `asset.zip` serves as the unique identifier connecting data across all systems.  
-- An additional UUID MAY be generated pre-mint to link the asset with the ENVITED-X database securely.
+- An additional UUID MUST be generated pre-mint to link the asset with the ENVITED-X database securely.
+- The DID of the member associated with the user minting the asset MUST be known.
 
 #### Pre-Mint Information
 
@@ -109,9 +115,10 @@ The synchronization between the smart contract and the ENVITED-X database relies
 
 1. The contract DID (current Ghostnet contract):  
    `did:tezos:NetXnHfVqm9iesp:KT1XC2fTBNqoafnrhEb7TuToRCzewgbHAhnA`
-2. The user DID at the time of minting.
-3. The transaction signature, validated against the user DID.
-4. Replace `@id` in `manifest.json` with generated UUID in `tzip21_asset_manifest.json`.
+2. Search CID of `tzip21_token_metadata.json` in database.
+3. Search the token owner in the database and compare with the owner in the smart contract.
+4. Replace `@id` in `manifest.json` with generated UUID in `tzip21_asset_manifest.json` and compare to database.
+5. Compare CID of the asset to avoid duplicates.
 
 #### TZIP-21 rich metadata mapping
 
