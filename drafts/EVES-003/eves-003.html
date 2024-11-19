@@ -1,0 +1,501 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>EVES-003: ENVITED Asset Definition and Upload Process · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../EVES-002/eves-002.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    EVES Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    EVES GitHub Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">EVES</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../EVES-001/eves-001.html">
+            
+                <a href="../EVES-001/eves-001.html">
+            
+                    
+                    EVES-001: ENVITED Ecosystem Specification Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../EVES-002/eves-002.html">
+            
+                <a href="../EVES-002/eves-002.html">
+            
+                    
+                    EVES-002: ENVITED-X Data Space Architecture Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="eves-003.html">
+            
+                <a href="eves-003.html">
+            
+                    
+                    EVES-003: ENVITED Asset Definition and Upload Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >EVES-003: ENVITED Asset Definition and Upload Process</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="abstract">Abstract</h2>
+<p>This specification defines the structure of an asset in the ENVITED-X Data Space and outlines the process for uploading assets to ensure compliance, security, and interoperability.
+It leverages existing standards, such as the Gaia-X 4 PLC-AAD Manifest Ontology, and implements privacy layers, validation, and metadata mapping aligned with <a href="https://docs.tezos.com/architecture/governance/improvement-process#tzip-21-rich-contract-metadata" target="_blank">Tezos TZIP-21</a>.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Standardizing the definition and upload process for assets in the ENVITED-X Data Space ensures:</p>
+<ul>
+<li>Interoperability with existing Gaia-X data spaces.</li>
+<li>Security through CID-based identification and metadata validation.</li>
+<li>Scalability for integrating diverse asset types.</li>
+</ul>
+<p>This EVES addresses the need for clear guidelines to onboard assets and synchronize data with ENVITED-X systems.</p>
+<h2 id="specification">Specification</h2>
+<h3 id="1-asset-definition">1. Asset Definition</h3>
+<p>An asset is defined by the <a href="https://github.com/GAIA-X4PLC-AAD/ontology-management-base/tree/main/manifest/" target="_blank">Gaia-X 4 PLC-AAD Manifest Ontology</a>.
+The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/tree/main/contracts/marketplace/metadata" target="_blank">here</a> is based on release v0.1.6 from the <a href="https://github.com/GAIA-X4PLC-AAD/hd-map-asset-example" target="_blank">HD-Map Asset Example</a>.</p>
+<p>This EVES references the <a href="https://docs.gaia-x.eu/policy-rules-committee/compliance-document/24.11/" target="_blank">Gaia-X Policy Rules Compliance Document (Release 24.11)</a>. Compatibility with this release is <strong>to be verified</strong> in a future update of this EVES.</p>
+<h3 id="2-pinata-ipfs-and-cid-management">2. Pinata IPFS and CID Management</h3>
+<h4 id="cid-v1">CID v1</h4>
+<ul>
+<li>Assets uploaded via <a href="https://pinata.cloud/" target="_blank">Pinata</a> MUST use <a href="https://docs.ipfs.tech/concepts/content-addressing/#version-1-v1" target="_blank">CID v1</a>.  </li>
+<li>This is achievable only through the API using the <code>pinataOptions</code> parameter, as outlined <a href="https://docs.pinata.cloud/web3/pinning/pinata-metadata#pinataoptions" target="_blank">here</a>.</li>
+</ul>
+<h4 id="file-naming">File Naming</h4>
+<ul>
+<li>Uploaded file names MUST exclude extensions (e.g., use <code>file</code> instead of <code>file.json</code>) to avoid issues such as double extensions during downloads (e.g., <code>file.json.json</code>).</li>
+</ul>
+<h3 id="3-privacy-layer">3. Privacy Layer</h3>
+<p>The ENVITED-X Data Space implements a three-tiered privacy model:</p>
+<table>
+<thead>
+<tr>
+<th>manifest:accessRole</th>
+<th>ENVITED-X Domain</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>owner</code></td>
+<td><a href="https://assets.envited-x.net/Asset-CID" target="_blank">https://assets.envited-x.net/Asset-CID</a></td>
+<td>CID v1, signed URLs, asset credential</td>
+</tr>
+<tr>
+<td><code>registeredUser</code></td>
+<td><a href="https://metadata.envited-x.net/Asset-CID" target="_blank">https://metadata.envited-x.net/Asset-CID</a></td>
+<td>CID v1, signed URLs, DEMIM credential</td>
+</tr>
+<tr>
+<td><code>publicUser</code></td>
+<td><a href="ipfs://Data-CID" target="_blank">ipfs://Data-CID</a> to <a href="https://ipfs.envited-x.net/Asset-CID/Data-CID" target="_blank">https://ipfs.envited-x.net/Asset-CID/Data-CID</a></td>
+<td>CID v1, public, indexer to new URL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-asset-validation-and-upload-process">4. Asset Validation and Upload Process</h3>
+<h4 id="step-1-client-side-pre-validation">Step 1: Client-Side Pre-Validation</h4>
+<ul>
+<li>Drag and drop <code>asset.zip</code> into the upload field.</li>
+<li>Validate the <code>manifest.json</code>:<ol>
+<li>Ensure JSON structure matches the manifest SHACL constraints.</li>
+<li>Verify all referenced files exist locally or remotely as specified.</li>
+<li>Locate the <code>domainMetadata.json</code> file.</li>
+</ol>
+</li>
+<li>Validate the <code>domainMetadata.json</code>:<ol>
+<li>Extract SHACL constraints from the <code>domainMetadata.json</code> context.</li>
+<li>Validate JSON structure against domain-specific SHACLs.</li>
+</ol>
+</li>
+</ul>
+<h4 id="step-2-upload-asset-to-envited-x-data-space">Step 2: Upload Asset to ENVITED-X Data Space</h4>
+<ul>
+<li>Trigger the upload process by clicking the &quot;Upload&quot; button.</li>
+<li>Calculate the CID of <code>asset.zip</code>.</li>
+<li>Rename <code>asset.zip</code> to <code>CID.zip</code> and store at <code>https://assets.envited-x.net/Asset-CID</code>.</li>
+<li>Store <em>registeredUser</em> metadata at <code>https://metadata.envited-x.net/Asset-CID</code>.</li>
+<li>Store <em>publicUser</em> metadata at <code>https://ipfs.envited-x.net/Asset-CID/Data-CID</code>.</li>
+<li>Calculate CIDs for all <code>publicUser</code> data.</li>
+<li>Create <code>tzip21_asset_manifest.json</code> by replacing relative paths in <code>manifest.json</code> with IPFS/envited-x.net URLs.</li>
+<li>Create <code>tzip21_token_metadata.json</code> and map metadata fields.</li>
+</ul>
+<h4 id="step-3-preview-data">Step 3: Preview Data</h4>
+<ul>
+<li><strong>TBD</strong>: Define visualization and preview mechanisms for uploaded data.</li>
+<li>If a user triggers the &quot;delete asset&quot; button then all data stored in Step 2) is deleted.</li>
+</ul>
+<h4 id="step-4-mint-token">Step 4: Mint Token</h4>
+<ul>
+<li>Upload <code>publicUser</code> information and <code>tzip21_asset_manifest.json</code> to IPFS.</li>
+<li>Verify that CIDs from Pinata returned the same CIDs then the pre-calculation.</li>
+<li>Upload <code>tzip21_token_metadata.json</code> to IPFS.</li>
+<li>Mint token with linked metadata.</li>
+<li>The wallet/SDK will provide feedback if a token was minted successfully.</li>
+</ul>
+<h4 id="step-5-listener-and-database-synchronization">Step 5: Listener and Database Synchronization</h4>
+<ul>
+<li>Use a listener to detect mint events and synchronize data with the ENVITED-X database.</li>
+<li>Verify that data referenced in the token metadata is the same as stored in Step 2).</li>
+<li>Verify the asset in reverse order as in step 1).</li>
+</ul>
+<h3 id="5-database-synchronization">5. Database Synchronization</h3>
+<h4 id="cid-as-the-primary-identifier">CID as the Primary Identifier</h4>
+<ul>
+<li>The CID of the uploaded <code>asset.zip</code> serves as the unique identifier connecting data across all systems.  </li>
+<li>An additional UUID MUST be generated pre-mint to link the asset with the ENVITED-X database securely.</li>
+<li>The DID of the member associated with the user minting the asset MUST be known.</li>
+</ul>
+<h4 id="pre-mint-information">Pre-Mint Information</h4>
+<p>If additional non-public information needs to be stored in the database before minting, the CID can associate this data with the minted asset.</p>
+<h4 id="synchronization-and-security">Synchronization and Security</h4>
+<p>The synchronization between the smart contract and the ENVITED-X database relies on:</p>
+<ol>
+<li>The contract DID (current Ghostnet contract):<br><code>did:tezos:NetXnHfVqm9iesp:KT1XC2fTBNqoafnrhEb7TuToRCzewgbHAhnA</code></li>
+<li>Search CID of <code>tzip21_token_metadata.json</code> in database.</li>
+<li>Search the token owner in the database and compare with the owner in the smart contract.</li>
+<li>Replace <code>@id</code> in <code>manifest.json</code> with generated UUID in <code>tzip21_asset_manifest.json</code> and compare to database.</li>
+<li>Compare CID of the asset to avoid duplicates.</li>
+</ol>
+<h4 id="tzip-21-rich-metadata-mapping">TZIP-21 rich metadata mapping</h4>
+<p>Attributes not in the table are static and the same for every mint. Examples are the first five tags or &quot;publishers&quot;, which is always ENVITED-X and the ASCS as the mint is conducted through the website.</p>
+<table>
+<thead>
+<tr>
+<th>TZIP-21</th>
+<th>EVES-003</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;name&quot;</td>
+<td>hdmap:general:name</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;description&quot;</td>
+<td>hdmap:general:description</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;tags&quot;</td>
+<td>hdmap:format:formatType + &quot; &quot; + hdmap:format:version</td>
+<td>All tags static except for the format</td>
+</tr>
+<tr>
+<td>&quot;minter&quot;</td>
+<td>Member DID associated with user initiating the mint</td>
+<td>Returned by the View from the DEMIM revocation registry</td>
+</tr>
+<tr>
+<td>&quot;creators&quot;</td>
+<td>Name of the company</td>
+<td>Taken from the company profile the user belongs to</td>
+</tr>
+<tr>
+<td>&quot;date&quot;</td>
+<td><a href="https://json-schema.org/understanding-json-schema/reference/string#dates-and-times" target="_blank">System date-time</a></td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;rights&quot;</td>
+<td>&quot;manifest:spdxIdentifier&quot;</td>
+<td><a href="https://softwareengineering.stackexchange.com/a/450839/443441" target="_blank">SPDX identifier</a></td>
+</tr>
+<tr>
+<td>&quot;rightsUri&quot;</td>
+<td>&quot;manifest:licenseData:manifest:path&quot;</td>
+<td>Full os license text URL OR policy smart contract did</td>
+</tr>
+<tr>
+<td>&quot;artifactUri&quot;</td>
+<td><a href="https://assets.envited-x.net/Asset-CID" target="_blank">https://assets.envited-x.net/Asset-CID</a></td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;identifier&quot;</td>
+<td>Asset-CID</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;externalUri&quot;</td>
+<td>Uploaded domainMetadata.json to IPFS</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;displayUri&quot;</td>
+<td>&quot;manifest:contentData:visualization&quot;</td>
+<td>Always use the first media image</td>
+</tr>
+<tr>
+<td>&quot;formats&quot;</td>
+<td>Add info for artifactUri, externalUri and displayUri</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;attributes&quot;</td>
+<td>Same as in example with IPFS CIDs+URL</td>
+<td>For other asset types hdmap would be exchanged</td>
+</tr>
+</tbody>
+</table>
+<h3 id="custom-spdx-license-identifier">Custom SPDX license identifier</h3>
+<ul>
+<li>Custom license in a LICENSE file in the asset.zip root folder: &quot;LicenseRef-Custom-Commercial-Agreement&quot;</li>
+<li>Custom license in a smart contract as json-ld ODRL policy: &quot;LicenseRef-Policy-Smart-Contract&quot;</li>
+</ul>
+<h2 id="backwards-compatibility">Backwards Compatibility</h2>
+<p>This specification introduces new processes for asset uploads and is fully compatible with existing ENVITED-X systems. No retroactive changes to previous assets are required.</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://github.com/GAIA-X4PLC-AAD/ontology-management-base/tree/main/manifest/" target="_blank">Gaia-X 4 PLC-AAD Manifest Ontology</a></li>
+<li><a href="https://github.com/GAIA-X4PLC-AAD/hd-map-asset-example" target="_blank">HD-Map Asset Example</a></li>
+<li><a href="https://docs.pinata.cloud/web3/pinning/pinata-metadata#pinataoptions" target="_blank">Pinata Documentation</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc2119" target="_blank">RFC 2119: Key Words for Use in RFCs to Indicate Requirement Levels</a></li>
+<li><a href="https://docs.gaia-x.eu/policy-rules-committee/compliance-document/24.11/" target="_blank">Gaia-X Policy Rules Compliance Document (Release 24.11)</a></li>
+<li><a href="https://github.com/ASCS-eV/smart-contracts/tree/main/contracts/marketplace/metadata" target="_blank">Reference Implementation</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../EVES-002/eves-002.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: EVES-002: ENVITED-X Data Space Architecture Overview">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"created":"2024-11-19T00:00:00.000Z","author":"Carlo van Driesten (@jdsika)","requires":["EVES-001"],"status":"Draft","eves-identifier":3,"title":"EVES-003: ENVITED Asset Definition and Upload Process","type":"Standards","discussions-to":"https://github.com/ASCS-eV/EVES/issues/4","replaces":"None","level":"2.3","depth":1,"previous":{"title":"EVES-002: ENVITED-X Data Space Architecture Overview","level":"2.2","depth":1,"path":"drafts/EVES-002/eves-002.md","ref":"drafts/EVES-002/eves-002.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"drafts/EVES-003/eves-003.md","mtime":"2024-11-19T15:48:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-19T15:54:26.213Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
