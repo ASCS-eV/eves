@@ -111,14 +111,7 @@ The synchronization between the smart contract and the ENVITED-X database relies
    `did:tezos:NetXnHfVqm9iesp:KT1XC2fTBNqoafnrhEb7TuToRCzewgbHAhnA`
 2. The user DID at the time of minting.
 3. The transaction signature, validated against the user DID.
-4. Replace *@id* with generated UUID in `tzip21_asset_manifest.json`:
-
-   ```json
-   // Replace manifest.json @id
-   "@id": "did:web:registry.gaia-x.eu:Manifest:ZNh9Z-tHQpkpxJhNobhUVmauYxrfTAZdQy9L",
-   // with ENVITED-X Data Space generated UUID
-   "@id": "urn:uuid:cf1f329d-9c4c-458e-ba0a-a762a296b79c",
-   ```
+4. Replace `@id` in `manifest.json` with generated UUID in `tzip21_asset_manifest.json`.
 
 #### TZIP-21 rich metadata mapping
 
