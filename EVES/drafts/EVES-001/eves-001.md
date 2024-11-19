@@ -12,7 +12,8 @@ replaces: None
 
 ## Abstract
 
-This specification establishes the formal process for creating, editing, and approving ENVITED Ecosystem Specifications (EVES). These specifications standardize and document implementation decisions for the ENVITED-X Data Space, promoting transparency, collaboration, and technical consistency within the ecosystem of the Automotive Solution Center for Simulation e.V. (ASCS).
+This specification establishes the formal process for creating, editing, and approving ENVITED Ecosystem Specifications (EVES).
+These specifications standardize and document implementation decisions for the ENVITED-X Data Space, promoting transparency, collaboration, and technical consistency within the ecosystem of the Automotive Solution Center for Simulation e.V. (ASCS).
 
 ## Motivation
 
