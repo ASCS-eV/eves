@@ -96,6 +96,7 @@ The ENVITED-X Data Space implements a three-tiered privacy model:
 
 - Use a listener to detect mint events and synchronize data with the ENVITED-X database.
 - Verify that data referenced in the token metadata is the same as stored in Step 2).
+- Verify the asset in reverse order as in step 1).
 
 ### 5. Database Synchronization
 
@@ -134,7 +135,7 @@ Attributes not in the table are static and the same for every mint. Examples are
 | "date"             | [System date-time][1]                                |                                                              |
 | "rights"           | "manifest:spdxIdentifier"                            | [SPDX identifier][2]                                         |
 | "rightsUri"        | "manifest:licenseData:manifest:path"                 | Full os license text URL OR policy smart contract did        |
-| "artifactUri"      | https://assets.envited-x.net/Asset-CID               |                                                              |
+| "artifactUri"      | <https://assets.envited-x.net/Asset-CID>             |                                                              |
 | "identifier"       | Asset-CID                                            |                                                              |
 | "externalUri"      | Uploaded domainMetadata.json to IPFS                 |                                                              |
 | "displayUri"       | "manifest:contentData:visualization"                 | Always use the first media image                             |
