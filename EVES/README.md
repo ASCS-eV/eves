@@ -22,19 +22,23 @@ The repository is organized into the following structure:
 
 #### Drafts Folder
 
-📁 `drafts/`  
+📁 `drafts/`
+
 - 📁 `EVES-001/`  
   - 📄 `EVES-001.md` *(Specification in Draft stage)*  
   - 📄 `schema.json` *(Optional: Schema or related resources for the EVES)*  
 
-- 📁 `EVES-002/`  
+- 📁 `EVES-002/`
+
   - 📄 `EVES-002.md`  
   - 📄 `diagram.png` *(Optional: Diagrams or illustrations for the EVES)*  
 
 #### Final Folder
 
-📁 `final/`  
-- 📁 `EVES-001/`  
+📁 `final/`
+
+- 📁 `EVES-001/`
+
   - 📄 `EVES-001.md` *(Finalized specification)*  
   - 📄 `reference_implementation.zip` *(Optional: Associated reference implementation)*  
 
@@ -44,7 +48,8 @@ The repository is organized into the following structure:
 
 #### Resources Folder
 
-📁 `resources/`  
+📁 `resources/`
+
 - 📄 `eves-template.md` *(Template for creating a new EVES)*  
 - 📄 `style-guide.md` *(Guidelines for writing EVES documents)*  
 - 📄 `schemas/`  
