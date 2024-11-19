@@ -1,0 +1,392 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>EVES-001 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">EVES</li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="eves-001.html">
+            
+                <a href="eves-001.html">
+            
+                    
+                    EVES-001
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >EVES-001</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="abstract">Abstract</h2>
+<p>This specification establishes the formal process for creating, editing, and approving ENVITED Ecosystem Specifications (EVES).
+These specifications standardize and document implementation decisions for the ENVITED-X Data Space, promoting transparency, collaboration, and technical consistency within the ecosystem of the Automotive Solution Center for Simulation e.V. (ASCS).</p>
+<h2 id="motivation">Motivation</h2>
+<p>A standardized process for EVES ensures clarity, inclusivity, and accountability in the evolution of the ENVITED ecosystem. By defining roles, responsibilities, and lifecycle stages, this process aligns with best practices from similar initiatives, such as Chain Agnostic Improvement Proposals (CAIPs).</p>
+<h2 id="specification">Specification</h2>
+<h3 id="1-eves-lifecycle">1. EVES Lifecycle</h3>
+<p>The EVES lifecycle consists of the following stages:</p>
+<ol>
+<li><p><strong>Draft</strong>:</p>
+<ul>
+<li>The EVES is created and submitted as a pull request to the GitHub repository.</li>
+<li>Initial feedback is gathered informally.</li>
+</ul>
+</li>
+<li><p><strong>Review</strong>:</p>
+<ul>
+<li>EVES Editors ensure compliance with format and process guidelines.</li>
+<li>The community provides input via GitHub discussions.</li>
+</ul>
+</li>
+<li><p><strong>Candidate</strong>:</p>
+<ul>
+<li>The EVES achieves community consensus.</li>
+<li>A reference implementation must be created to demonstrate feasibility and validate the proposal.</li>
+</ul>
+</li>
+<li><p><strong>Final</strong>:</p>
+<ul>
+<li>The EVES undergoes final review by designated Approvers.</li>
+<li>Upon approval, the EVES is merged and marked as Final.</li>
+</ul>
+</li>
+<li><p><strong>Deferred/Rejected</strong>:</p>
+<ul>
+<li>Proposals not meeting the required criteria or consensus may be deferred for future consideration or rejected.</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-eves-numbering">2. EVES Numbering</h3>
+<p>EVES documents follow sequential numbering, starting from EVES-001, EVES-002, and so forth. This ensures easy identification and reference.</p>
+<h3 id="3-eves-types">3. EVES Types</h3>
+<p>EVES documents can fall into one of the following types:</p>
+<ol>
+<li><p><strong>Standards</strong>:</p>
+<ul>
+<li>Defines technical specifications or protocols that should be adopted by the ecosystem.</li>
+<li>Examples: data formats, communication protocols, APIs.</li>
+</ul>
+</li>
+<li><p><strong>Informational</strong>:</p>
+<ul>
+<li>Provides general guidelines, explanations, or context for ecosystem participants.</li>
+<li>Examples: best practices, usage recommendations.</li>
+</ul>
+</li>
+<li><p><strong>Process</strong>:</p>
+<ul>
+<li>Outlines procedural or governance rules that apply to the ENVITED community.</li>
+<li>Examples: this EVES-001, editorial governance rules.</li>
+</ul>
+</li>
+</ol>
+<p>Each EVES type must be specified in the document header under the &quot;Type&quot; field.</p>
+<h3 id="4-roles-and-responsibilities">4. Roles and Responsibilities</h3>
+<h4 id="author">Author</h4>
+<ul>
+<li>Any individual or group proposing an EVES.</li>
+<li>Responsible for drafting, gathering feedback, and revising the proposal.</li>
+</ul>
+<h4 id="community">Community</h4>
+<ul>
+<li>All stakeholders who discuss, review, and provide input on EVES.</li>
+</ul>
+<h4 id="eves-editors">EVES Editors</h4>
+<ul>
+<li>Members of the ENVITED Research Cluster within ASCS.</li>
+<li>Oversee formatting, process adherence, and editorial mediation.</li>
+<li>Governed by the rules outlined <a href="https://openmsl.github.io/doc/OpenMSL/organization/governance_rules.html" target="_blank">here</a>.</li>
+</ul>
+<h4 id="approvers">Approvers</h4>
+<ul>
+<li>A designated body within ASCS ENVITED community responsible for final evaluation and adoption.</li>
+</ul>
+<h3 id="5-reference-implementation">5. Reference Implementation</h3>
+<p>To proceed from Candidate to Final, a reference implementation must:</p>
+<ul>
+<li>Validate the proposal&#x2019;s feasibility,</li>
+<li>Serve as a practical example for adoption,</li>
+<li>Be submitted alongside the EVES documentation.</li>
+</ul>
+<h3 id="6-format">6. Format</h3>
+<p>All EVES documents must adhere to the following structure:</p>
+<ol>
+<li><strong>Title</strong>: A descriptive and concise title.</li>
+<li><strong>Abstract</strong>: A summary of the proposal.</li>
+<li><strong>Motivation</strong>: The problem statement or justification for the proposal.</li>
+<li><strong>Specification</strong>: Detailed technical and procedural content.</li>
+<li><strong>Rationale</strong>: Explanation of the approach and alternatives considered.</li>
+<li><strong>Backwards Compatibility</strong>: Analysis of how the proposal interacts with existing systems.</li>
+<li><strong>Implementation</strong>: Guidelines or requirements for practical execution.</li>
+<li><strong>References</strong>: Links to related documents or discussions.</li>
+</ol>
+<h3 id="7-process-flow">7. Process Flow</h3>
+<ol>
+<li><p><strong>Submission</strong>:</p>
+<ul>
+<li>Authors submit a pull request to the EVES GitHub repository.</li>
+</ul>
+</li>
+<li><p><strong>Editorial Review</strong>:</p>
+<ul>
+<li>EVES Editors review format and compliance with guidelines.</li>
+</ul>
+</li>
+<li><p><strong>Community Review</strong>:</p>
+<ul>
+<li>Open discussions and feedback via GitHub and other forums.</li>
+</ul>
+</li>
+<li><p><strong>Candidate Stage</strong>:</p>
+<ul>
+<li>Achieve community consensus and provide a reference implementation.</li>
+</ul>
+</li>
+<li><p><strong>Approval</strong>:</p>
+<ul>
+<li>Approvers review and mark the EVES as Final.</li>
+</ul>
+</li>
+</ol>
+<h3 id="8-governance">8. Governance</h3>
+<p>The process emphasizes openness, inclusivity, and accountability. Discussions, decisions, and documentation are publicly accessible on the EVES GitHub repository. Governance rules for EVES Editors are defined <a href="https://openmsl.github.io/doc/OpenMSL/organization/governance_rules.html" target="_blank">here</a>.</p>
+<h2 id="backwards-compatibility">Backwards Compatibility</h2>
+<p>This process introduces new standards and does not conflict with prior procedures, as it establishes a foundational framework.</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://github.com/ChainAgnostic/CAIPs" target="_blank">Chain Agnostic Improvement Proposals (CAIPs)</a></li>
+<li><a href="https://openmsl.github.io/doc/OpenMSL/organization/governance_rules.html" target="_blank">OpenMSL Governance Rules</a></li>
+</ol>
+<h2 id="implementation">Implementation</h2>
+<p>The initial implementation of EVES-001 involves:</p>
+<ol>
+<li>Setting up the GitHub repository <a href="https://github.com/ASCS-eV/EVES" target="_blank">here</a>.</li>
+<li>Establishing an editorial board from the ENVITED Research Cluster.</li>
+<li>Publishing this document as EVES-001.</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../" class="navigation navigation-prev navigation-unique" aria-label="Previous page: README">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"created":"19.11.2024","author":"Carlo van Driesten (@jdsika)","requires":"None","status":"Draft","eves-identifier":1,"title":"EVES-001","type":"Process","discussions-to":"https://github.com/ASCS-eV/EVES/issues/9","replaces":"None","level":"2.1","depth":1,"previous":{"title":"README","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"drafts/EVES-001/eves-001.md","mtime":"2024-11-19T10:51:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-19T10:53:00.595Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
