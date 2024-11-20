@@ -272,6 +272,7 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
 <li>Store <em>publicUser</em> metadata at <code>https://ipfs.envited-x.net/Asset-CID/Data-CID</code>.</li>
 <li>Calculate CIDs for all <code>publicUser</code> data.</li>
 <li>Create <code>tzip21_asset_manifest.json</code> by replacing relative paths in <code>manifest.json</code> with IPFS/envited-x.net URLs.</li>
+<li>Replace <code>@id</code> from <code>manifest.json</code> with generated UUID in <code>tzip21_asset_manifest.json</code>.</li>
 <li>Create <code>tzip21_token_metadata.json</code> and map metadata fields.</li>
 </ul>
 <h4 id="step-3-preview-data">Step 3: Preview Data</h4>
@@ -281,6 +282,7 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
 </ul>
 <h4 id="step-4-mint-token">Step 4: Mint Token</h4>
 <ul>
+<li>Requirement: Use signed CIDs for the upload to Pinata according to EIP-712.</li>
 <li>Upload <code>publicUser</code> information and <code>tzip21_asset_manifest.json</code> to IPFS.</li>
 <li>Verify that CIDs from Pinata returned the same CIDs then the pre-calculation.</li>
 <li>Upload <code>tzip21_token_metadata.json</code> to IPFS.</li>
@@ -296,7 +298,8 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
 <h3 id="5-database-synchronization">5. Database Synchronization</h3>
 <h4 id="cid-as-the-primary-identifier">CID as the Primary Identifier</h4>
 <ul>
-<li>The CID of the uploaded <code>asset.zip</code> serves as the unique identifier connecting data across all systems.  </li>
+<li>The CID of the uploaded <code>asset.zip</code> serves as the unique identifier connecting data across all systems.</li>
+<li>The CIDs are signed by the user according to EIP-712.</li>
 <li>An additional UUID MUST be generated pre-mint to link the asset with the ENVITED-X database securely.</li>
 <li>The DID of the member associated with the user minting the asset MUST be known.</li>
 </ul>
@@ -306,10 +309,9 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
 <p>The synchronization between the smart contract and the ENVITED-X database relies on:</p>
 <ol>
 <li>The contract DID (current Ghostnet contract):<br><code>did:tezos:NetXnHfVqm9iesp:KT1XC2fTBNqoafnrhEb7TuToRCzewgbHAhnA</code></li>
-<li>Search CID of <code>tzip21_token_metadata.json</code> in database.</li>
-<li>Search the token owner in the database and compare with the owner in the smart contract.</li>
-<li>Replace <code>@id</code> in <code>manifest.json</code> with generated UUID in <code>tzip21_asset_manifest.json</code> and compare to database.</li>
-<li>Compare CID of the asset to avoid duplicates.</li>
+<li>Search <code>CID</code> of <code>tzip21_token_metadata.json</code> in database.</li>
+<li>Compare if signature on CID is a <code>user</code> belonging to the <code>member</code> and if member is owner of token.</li>
+<li>Check: Uniqueness of CID in database.</li>
 </ol>
 <h4 id="tzip-21-rich-metadata-mapping">TZIP-21 rich metadata mapping</h4>
 <p>Attributes not in the table are static and the same for every mint. Examples are the first five tags or &quot;publishers&quot;, which is always ENVITED-X and the ASCS as the mint is conducted through the website.</p>
@@ -409,6 +411,7 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
 <li><a href="https://datatracker.ietf.org/doc/html/rfc2119" target="_blank">RFC 2119: Key Words for Use in RFCs to Indicate Requirement Levels</a></li>
 <li><a href="https://docs.gaia-x.eu/policy-rules-committee/compliance-document/24.11/" target="_blank">Gaia-X Policy Rules Compliance Document (Release 24.11)</a></li>
 <li><a href="https://github.com/ASCS-eV/smart-contracts/tree/main/contracts/marketplace/metadata" target="_blank">Reference Implementation</a></li>
+<li><a href="https://eips.ethereum.org/EIPS/eip-712" target="_blank">EIP-712</a></li>
 </ol>
 
                                 
@@ -449,7 +452,7 @@ The example implementation <a href="https://github.com/ASCS-eV/smart-contracts/t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"created":"2024-11-19T00:00:00.000Z","author":"Carlo van Driesten (@jdsika)","requires":["EVES-001"],"status":"Draft","eves-identifier":3,"title":"EVES-003: ENVITED Asset Definition and Upload Process","type":"Standards","discussions-to":"https://github.com/ASCS-eV/EVES/issues/4","replaces":"None","level":"2.3","depth":1,"previous":{"title":"EVES-002: ENVITED-X Data Space Architecture Overview","level":"2.2","depth":1,"path":"drafts/EVES-002/eves-002.md","ref":"drafts/EVES-002/eves-002.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"drafts/EVES-003/eves-003.md","mtime":"2024-11-19T15:48:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-19T17:56:46.611Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"created":"2024-11-19T00:00:00.000Z","author":"Carlo van Driesten (@jdsika)","requires":["EVES-001"],"status":"Draft","eves-identifier":3,"title":"EVES-003: ENVITED Asset Definition and Upload Process","type":"Standards","discussions-to":"https://github.com/ASCS-eV/EVES/issues/4","replaces":"None","level":"2.3","depth":1,"previous":{"title":"EVES-002: ENVITED-X Data Space Architecture Overview","level":"2.2","depth":1,"path":"drafts/EVES-002/eves-002.md","ref":"drafts/EVES-002/eves-002.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"drafts/EVES-003/eves-003.md","mtime":"2024-11-20T11:17:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-20T11:18:23.691Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
