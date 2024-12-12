@@ -90,9 +90,12 @@ In addition to handling customer payments, providers are responsible for paying 
 
 To ensure accurate fee calculations while maintaining business confidentiality:
 
-1. Providers must construct a Zero-Knowledge Proof (ZKP) to verify the correctness of the accumulated fees based on submitted hashes. These hashes should reference the cumulative bills issued to customers. The ZKP should also validate that the fees align with the agreement between the provider and the operator
+1. Providers must construct a Zero-Knowledge Proof (ZKP) to verify the correctness of the accumulated fees based on submitted hashes. 
+These hashes should reference the cumulative bills issued to customers. 
+The ZKP should also validate that the fees align with the agreement between the provider and the operator.
 
-2. If the operator questions the reliability of the ZKP, they may request the provider to disclose the underlying financial report referenced in the ZKP. The provider would then present the hashes and the original data used to construct these hashes, thereby proving the legitimacy of their actions.
+2. If the operator questions the reliability of the ZKP, they may request the provider to disclose the underlying financial report referenced in the ZKP. 
+The provider would then present the hashes and the original data used to construct these hashes, thereby proving the legitimacy of their actions.
 
 ### 6. Limitations and Discussion
 
