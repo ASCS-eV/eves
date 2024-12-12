@@ -1,7 +1,7 @@
 ---
 eves-identifier: 005
 title: ENVITED-X Contract Negotiation Process
-author: Felix Hoops (@jfelixh), Carlo van Driesten (@jdsika)
+author: Felix Hoops (@jfelixh), Carlo van Driesten (@jdsika), Van Thanh Le(@levanthanh3005)
 discussions-to:
 status: Draft
 type: Process
@@ -79,11 +79,13 @@ At this point, the contract is fully settled and the consumer can use the asset.
 ### 5. Fee and Payment Report
 
 #### 5.1. Asset Fee
+
 1. After a defined period, the provider compiles all completed contracts and generates a cumulative bill.
 2. The provider sends this bill to the respective customers.
 3. The customers review the bill and make payments.
 
 #### 5.2. Operator Fee
+
 In addition to handling customer payments, providers are responsible for paying the accumulated fees to the operator.
 
 To ensure accurate fee calculations while maintaining business confidentiality:
